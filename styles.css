@@ -1,0 +1,170 @@
+:root {
+  --ink: #050505;
+  --soft-ink: #d2d2d2;
+  --line: #cbcbcb;
+  --page: #fff;
+}
+
+/* Official Google Fonts files. `block` prevents Arial from flashing in the preview. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url("https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf") format("truetype");
+}
+
+* { box-sizing: border-box; }
+
+html, body { min-height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  position: relative;
+  width: min(100% - 48px, 478px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-top: 65px;
+}
+
+.intro-card {
+  position: relative;
+  min-height: 613px;
+  border: 1px solid var(--line);
+  padding: 39px 31px 39px;
+}
+
+h1 {
+  margin: 0;
+  letter-spacing: -0.05em;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 48px;
+}
+
+a { color: inherit; }
+
+.spots-word {
+  color: var(--soft-ink);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.spots-word:hover, .spots-word:focus-visible { color: var(--ink); }
+
+.copy {
+  margin-top: 25px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 20px;
+}
+
+.copy p { margin: 0 0 20px; }
+.copy p:nth-child(2) { margin-bottom: 19px; }
+
+.explore-link {
+  position: absolute;
+  bottom: 40px;
+  left: 31px;
+  display: inline-flex;
+  gap: 17px;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  text-decoration: none;
+}
+
+.explore-label {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 180ms ease;
+}
+
+.explore-arrow {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform 180ms ease;
+}
+
+.explore-link:hover .explore-label,
+.explore-link:focus-visible .explore-label { text-decoration-color: currentColor; }
+
+.explore-link:hover .explore-arrow,
+.explore-link:focus-visible .explore-arrow { transform: translateX(-4px); }
+
+.social-card {
+  position: absolute;
+  z-index: 1;
+  right: 31px;
+  /* Anchor to the intro card: it extends 32px below its lower border. */
+  top: 485px;
+  width: 176px;
+  min-height: 225px;
+  border: 1px solid var(--line);
+  background: var(--page);
+  padding: 123px 23px 22px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 20px;
+}
+
+.social-card p { margin: 0; }
+.social-label { color: var(--soft-ink); }
+.social-card a { display: block; text-decoration: none; width: fit-content; }
+.social-card a:hover, .social-card a:focus-visible { text-decoration: underline; text-underline-offset: 2px; }
+
+@media (max-width: 560px) {
+  .page {
+    width: min(100% - 32px, 478px);
+    padding: 32px 0 40px;
+  }
+
+  .intro-card {
+    min-height: 600px;
+    padding: 28px 24px 32px;
+  }
+
+  h1 { font-size: clamp(38px, 11vw, 46px); }
+  .copy { margin-top: 25px; }
+  .desktop-break { display: none; }
+  .explore-link { bottom: 31px; left: 24px; }
+
+  .social-card {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: 176px;
+    min-height: 225px;
+    margin: -192px 24px 32px auto;
+    padding: 123px 23px 22px;
+  }
+}
+
+@media (max-width: 370px) {
+  h1 { font-size: 37px; }
+  .intro-card { min-height: 584px; }
+}
